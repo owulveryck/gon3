@@ -2,11 +2,12 @@ package gon3
 
 import (
 	"fmt"
-	"github.com/rychipman/easylex"
 	"io"
 	"io/ioutil"
 	"net/url"
 	"strings"
+
+	"github.com/rychipman/easylex"
 )
 
 type Parser struct {
@@ -21,6 +22,10 @@ type Parser struct {
 	lastBlankNode *BlankNode
 	curSubject    Term
 	curPredicate  Term
+}
+
+func (p *Parser) GetNamespaces() map[string]*IRI {
+	return p.namespaces
 }
 
 func NewParser(baseUri string) *Parser {
