@@ -245,6 +245,11 @@ type Graph struct {
 	uri     *IRI
 }
 
+// Triples returns the triples of the graph
+func (g *Graph) Triples() []*Triple {
+	return g.triples
+}
+
 func (g *Graph) IsomorphicTo(other *Graph) bool {
 	cg1 := g.Canonicalize()
 	cg2 := other.Canonicalize()
